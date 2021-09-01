@@ -5,7 +5,7 @@ const Header = (props) => {
   return (
     <div className={styles.header}>
       <img
-        src='https://lh3.googleusercontent.com/proxy/aRqxqsXcnI_GLOl0eq_tY6yGPeJ_q9S6tR1jdM_f6Yb5SPNRNlWI8c4dGLaQO1jr0KWyBrvmg7XAgGpGIC05U0BHAwB3-0-zh-JMIgNNxeH5yvY'
+        src='https://pngimg.com/uploads/amazon/amazon_PNG11.png'
         alt='amazon logo'
         className={styles.header_logo}
       />

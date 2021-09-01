@@ -12,6 +12,16 @@ const Login = (props) => {
   const loginPassword = (e) => {
     setPassword(e.target.value);
   };
+
+  const signInClick = (e) => {
+    e.preventDefault();
+    console.log('click1');
+  };
+
+  const signUpClick = (e) => {
+    e.preventDefault();
+    console.log('click2');
+  };
   return (
     <div className={styles.login}>
       <Link to='/'>
@@ -40,11 +50,15 @@ const Login = (props) => {
             value={password}
             onChange={loginPassword}
           />
-          <button className={styles.signIn}>로그인 하기</button>
+          <button onClick={signInClick} className={styles.signIn}>
+            로그인 하기
+          </button>
         </form>
 
         <p>이용 약관 동의하십니까?</p>
-        <button className={styles.join}>회원가입</button>
+        <button onClick={signUpClick} className={styles.join}>
+          회원가입
+        </button>
       </div>
     </div>
   );

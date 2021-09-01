@@ -22,7 +22,9 @@ const Header = (props) => {
       <nav className={styles.nav}>
         <div className={styles.options}>
           <span className={styles.option}>안녕하세요!</span>
-          <span className={styles.option2}>로그인하기</span>
+          <Link className={styles.login} to='/login'>
+            <span className={styles.option2}>로그인하기</span>
+          </Link>
         </div>
         <div className={styles.options}>
           <span className={styles.option}>돌아가기!</span>

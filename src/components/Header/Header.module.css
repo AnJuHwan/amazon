@@ -64,6 +64,8 @@
   margin: 0.5em;
 }
 
-.link {
+.link,
+.login {
   text-decoration: none;
+  color: white;
 }

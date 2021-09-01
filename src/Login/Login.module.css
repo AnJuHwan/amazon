@@ -1,0 +1,46 @@
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  background-color: #f3f3f3;
+}
+
+.loginImg {
+  margin-top: 1.2em;
+  margin-bottom: 1.2em;
+  width: 300px;
+  background-color: black;
+  padding: 1em;
+}
+
+.loginContainer {
+  border: 1px solid black;
+  padding: 1em;
+  border-radius: 10px;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1em;
+}
+
+.signIn {
+  margin-top: 1em;
+}
+
+.input {
+  margin: 0.2em 0;
+}
+
+.join {
+  margin-top: 0.5em;
+  width: 100%;
+}
+
+.signIn,
+.join {
+  background-color: blanchedalmond;
+  border: 1px solid grey;
+}

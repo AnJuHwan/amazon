@@ -3,12 +3,17 @@ import './App.css';
 import Checkout from './components/Checkout/Checkout';
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
+import Login from './Login/Login';
 
 function App() {
   return (
     <Router>
       <>
         <Switch>
+          <Route path='/login'>
+            <Login />
+          </Route>
+
           <Route path='/' exact>
             <Header />
             <Home />

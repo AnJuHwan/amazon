@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useStateValue } from '../../Store/StateProvider';
 import styles from './Header.module.css';
 
 const Header = (props) => {
+  const [{ basket }, dispatch] = useStateValue();
   return (
     <div className={styles.header}>
       <Link to='/'>
@@ -35,7 +37,7 @@ const Header = (props) => {
       <Link className={styles.link} to='/checkout'>
         <div className={styles.shopppingBasket}>
           <span>장바구니</span>
-          <span>0</span>
+          <span>{basket.length === 0 ? 0 : basket.length}</span>
         </div>
       </Link>
     </div>

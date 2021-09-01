@@ -1,0 +1,25 @@
+.checkoutProduct {
+  display: flex;
+  margin-top: 1em;
+  border: 1px solid grey;
+  padding: 0.5em;
+}
+
+.productImg {
+  width: 300px;
+  margin-right: 1em;
+}
+
+.productRating {
+  display: flex;
+}
+
+.checkoutProduct > button {
+  align-items: center;
+}
+
+.productInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

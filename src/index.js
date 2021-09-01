@@ -3,10 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App.jsx';
 import reportWebVitals from './reportWebVitals';
+import { StateProvier } from './Store/StateProvider';
+import reducer, { initalState } from './Store/Reducer';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <StateProvier initalState={initalState} reducer={reducer}>
+      <App />
+    </StateProvier>
   </React.StrictMode>,
   document.getElementById('root'),
 );

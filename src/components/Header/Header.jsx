@@ -1,14 +1,17 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styles from './Header.module.css';
 
 const Header = (props) => {
   return (
     <div className={styles.header}>
-      <img
-        src='https://pngimg.com/uploads/amazon/amazon_PNG11.png'
-        alt='amazon logo'
-        className={styles.header_logo}
-      />
+      <Link to='/'>
+        <img
+          src='https://pngimg.com/uploads/amazon/amazon_PNG11.png'
+          alt='amazon logo'
+          className={styles.header_logo}
+        />
+      </Link>
       <form className={styles.searchForm}>
         <input type='text' className={styles.searchInput} />
         <button className={styles.searchButton}>검색</button>
@@ -29,10 +32,12 @@ const Header = (props) => {
         </div>
       </nav>
 
-      <div className={styles.shopppingBasket}>
-        <span>장바구니</span>
-        <span>0</span>
-      </div>
+      <Link className={styles.link} to='/checkout'>
+        <div className={styles.shopppingBasket}>
+          <span>장바구니</span>
+          <span>0</span>
+        </div>
+      </Link>
     </div>
   );
 };

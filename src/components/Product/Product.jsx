@@ -1,6 +1,25 @@
 import React from 'react';
+import { useStateValue } from '../../Store/StateProvider';
 import styles from './Product.module.css';
+
 const Product = ({ id, title, price, image, rating }) => {
+  const [{ basket }, dispatch] = useStateValue();
+
+  const addToBasket = () => {
+    dispatch({
+      type: 'ADD_TO_BASKET',
+      item: {
+        id,
+        title,
+        image,
+        price,
+        rating,
+      },
+    });
+  };
+
+  console.log('장바구니 확인', basket);
+
   return (
     <div className={styles.product}>
       <p>{title}</p>
@@ -13,7 +32,7 @@ const Product = ({ id, title, price, image, rating }) => {
           ))}
       </div>
       <img src={image} alt='' />
-      <button>장바구니 담기</button>
+      <button onClick={addToBasket}>장바구니 담기</button>
     </div>
   );
 };

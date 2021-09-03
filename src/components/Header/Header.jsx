@@ -1,10 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { auth } from '../../firebase/firebase';
 import { useStateValue } from '../../Store/StateProvider';
 import styles from './Header.module.css';
 
 const Header = (props) => {
-  const [{ basket }, dispatch] = useStateValue();
+  const [{ basket, user }, dispatch] = useStateValue();
+  const handleAuthentication = () => {
+    const getAuth = auth;
+    getAuth.signOut();
+  };
   return (
     <div className={styles.header}>
       <Link to='/'>
@@ -22,8 +27,10 @@ const Header = (props) => {
       <nav className={styles.nav}>
         <div className={styles.options}>
           <span className={styles.option}>안녕하세요!</span>
-          <Link className={styles.login} to='/login'>
-            <span className={styles.option2}>로그인하기</span>
+          <Link className={styles.login} to={user === null && '/login'}>
+            <span className={styles.option2} onClick={handleAuthentication}>
+              {user !== null ? '로그아웃' : '로그인하기'}
+            </span>
           </Link>
         </div>
         <div className={styles.options}>

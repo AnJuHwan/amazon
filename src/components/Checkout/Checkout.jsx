@@ -4,7 +4,7 @@ import CheckoutProduct from '../CheckoutProduct/CheckoutProduct';
 import SubTotal from '../SubTotal/SubTotal';
 import styles from './Checkout.module.css';
 const Checkout = (props) => {
-  const [{ basket }, dispatch] = useStateValue();
+  const [{ basket, user }, dispatch] = useStateValue();
 
   return (
     <div className={styles.checkout}>
@@ -15,7 +15,9 @@ const Checkout = (props) => {
           alt=''
         />
         <div>
-          <h2 className={styles.checkout_title}>장바구니입니다.</h2>
+          <h2 className={styles.checkout_title}>
+            {user ? user.email : ''} 님의 장바구니입니다.
+          </h2>
           {basket.map((item) => {
             return (
               <CheckoutProduct

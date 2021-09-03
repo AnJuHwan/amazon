@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { auth } from '../firebase/firebase';
 import styles from './Login.module.css';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from 'firebase/auth';
 const Login = (props) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const histyory = useHistory();
 
   const loginEmail = (e) => {
     setEmail(e.target.value);
@@ -17,7 +21,10 @@ const Login = (props) => {
 
   const signInClick = (e) => {
     e.preventDefault();
-    console.log('click1');
+    const getAuth = auth;
+    signInWithEmailAndPassword(getAuth, email, password)
+      .then((auth) => histyory.push('/'))
+      .catch((error) => alert('확인된 정보가 없습니다.'));
   };
 
   const signUpClick = (e) => {
@@ -25,9 +32,9 @@ const Login = (props) => {
     const getAuth = auth;
     createUserWithEmailAndPassword(getAuth, email, password)
       .then((auth) => {
-        console.log(auth);
+        auth && histyory.push('/');
       })
-      .catch((error) => {});
+      .catch((error) => alert('이미 아이디가 있습니다.'));
   };
   return (
     <div className={styles.login}>

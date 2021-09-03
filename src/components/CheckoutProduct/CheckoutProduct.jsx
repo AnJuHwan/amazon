@@ -1,14 +1,17 @@
 import React from 'react';
 import { useStateValue } from '../../Store/StateProvider';
 import styles from './CheckoutProduct.module.css';
+
 const CheckoutProduct = ({ id, image, title, price, rating }) => {
   const [{ basket }, dispatch] = useStateValue();
+
   const removeBasket = () => {
     dispatch({
       type: 'REMOVE_TO_BASKET',
       id,
     });
   };
+
   return (
     <div className={styles.checkoutProduct}>
       <img className={styles.productImg} src={image} alt='' />

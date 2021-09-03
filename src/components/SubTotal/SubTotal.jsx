@@ -1,11 +1,13 @@
 import React from 'react';
 import CurrecnyFormat from 'react-currency-format';
+import { useHistory } from 'react-router-dom';
 import { getBasketTotal } from '../../Store/Reducer';
 import { useStateValue } from '../../Store/StateProvider';
 import styles from './SubTotal.module.css';
 
 const SubTotal = (props) => {
   const [{ basket }, dispatch] = useStateValue();
+  const histyory = useHistory();
   return (
     <div className={styles.subtotal}>
       <CurrecnyFormat
@@ -26,7 +28,7 @@ const SubTotal = (props) => {
         thousandSeparator={true}
         prefix={'₩'}
       />
-      <button>결제하기</button>
+      <button onClick={() => histyory.push('/payment')}>결제하기</button>
     </div>
   );
 };

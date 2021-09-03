@@ -27,7 +27,7 @@ const Header = (props) => {
       <nav className={styles.nav}>
         <div className={styles.options}>
           <span className={styles.option}>안녕하세요!</span>
-          <Link className={styles.login} to={user === null && '/login'}>
+          <Link className={styles.login} to={user === null ? '/login' : '/'}>
             <span className={styles.option2} onClick={handleAuthentication}>
               {user !== null ? '로그아웃' : '로그인하기'}
             </span>
